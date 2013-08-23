@@ -17,7 +17,7 @@ module Namecheap
     # @see http://developer.namecheap.com/docs/doku.php?id=api-reference:domains:create
     def create(domain, options = {})
       options = {:DomainName => domain}.merge(options)
-      get 'domains.create', options
+      post 'domains.create', options
     end
 
     # Returns a list of tlds.

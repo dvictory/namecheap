@@ -28,13 +28,13 @@ module Namecheap
       
       case method
       when 'get'
-        HTTParty.get(ENDPOINT, options)
+        HTTParty.get(ENDPOINT, :query=>options)
       when 'post'
-        HTTParty.post(ENDPOINT, options)
+        HTTParty.post(ENDPOINT, :query=>options)
       when 'put'
-        HTTParty.put(ENDPOINT, options)
+        HTTParty.put(ENDPOINT, :query=>options)
       when 'delete'
-        HTTParty.delete(ENDPOINT, options)
+        HTTParty.delete(ENDPOINT, :query=>options)
       end
     end
 
