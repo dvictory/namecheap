@@ -30,7 +30,7 @@ module Namecheap
       when 'get'
         HTTParty.get(ENDPOINT, :query=>options)
       when 'post'
-        HTTParty.post(ENDPOINT, :query=>options)
+        HTTParty.post(ENDPOINT, :query=>options,:body=>{})
       when 'put'
         HTTParty.put(ENDPOINT, :query=>options)
       when 'delete'

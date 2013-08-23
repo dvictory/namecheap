@@ -50,7 +50,7 @@ module Namecheap
     # @see http://developer.namecheap.com/docs/doku.php?id=api-reference:domains.dns:sethosts
     def set_hosts(sld, tld, options = {})
       options = {:SLD => sld, :TLD => tld}.merge(options)
-      get 'domains.dns.setHosts', options
+      post 'domains.dns.setHosts', options
     end
   end
 end
