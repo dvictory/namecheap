@@ -16,12 +16,12 @@ class Hash
   #  end.sort * '&'
   #end
   #
-  #def camelize_keys!
-  #  keys.each do |key|
-  #    self[key.to_s.camelize] = delete(key)
-  #  end
-  #  self
-  #end
+  def camelize_keys!
+    keys.each do |key|
+      self[key.to_s.camelize] = delete(key)
+    end
+    self
+  end
   #
   #
   #alias_method :to_query, :to_param
