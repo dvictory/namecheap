@@ -1,3 +1,5 @@
+require 'namecheap/api'
+
 module Namecheap
   class Ssl < Api
     # Activates a newly purchased SSL certificate.

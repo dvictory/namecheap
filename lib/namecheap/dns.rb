@@ -1,3 +1,5 @@
+require 'namecheap/api'
+
 module Namecheap
   class Dns < Api
     # Sets domain to use Namecheap's default DNS servers.

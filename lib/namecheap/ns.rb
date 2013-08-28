@@ -1,3 +1,5 @@
+require 'namecheap/api'
+
 module Namecheap
   class Ns < Api
     # Creates a new nameserver.

@@ -1,3 +1,5 @@
+require 'namecheap/api'
+
 module Namecheap
   class Domains < Api
     # Returns a list of domains for the particular user.

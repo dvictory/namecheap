@@ -1,3 +1,5 @@
+require 'namecheap/api'
+
 module Namecheap
   class Users < Api
     # Creates a new user account at NameCheap.

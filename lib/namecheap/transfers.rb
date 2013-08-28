@@ -1,3 +1,5 @@
+require 'namecheap/api'
+
 module Namecheap
   class Transfers < Api
     # Transfers a domain to Namecheap.

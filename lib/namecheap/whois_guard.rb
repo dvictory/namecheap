@@ -1,3 +1,5 @@
+require 'namecheap/api'
+
 module Namecheap
   class Whois_Guard < Api
     # Allots WhoisGuard privacy protection.
