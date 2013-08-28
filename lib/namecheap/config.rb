@@ -38,6 +38,10 @@ module Namecheap
     option :key, :default => 'apikey'
     option :username, :default => 'apiuser'
     option :client_ip, :default => '127.0.0.1'
+    option :proxy_url, :default => nil
+    option :proxy_port, :default => nil
+    option :proxy_user, :default => nil
+    option :proxy_password, :default => nil
 
     # Configure namecheap from a hash. This is usually called after parsing a
     # yaml config file such as mongoid.yml.

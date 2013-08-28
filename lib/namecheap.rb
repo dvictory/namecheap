@@ -1,5 +1,6 @@
 require 'httparty'
 require 'monkey_patch'
+require 'proximo_party'
 require 'pp'
 
 $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/namecheap")
