@@ -1,3 +1,5 @@
+require 'namecheap/api'
+
 module Namecheap
   class Dns < Api
     # Sets domain to use Namecheap's default DNS servers.
@@ -29,7 +31,7 @@ module Namecheap
     # @see http://developer.namecheap.com/docs/doku.php?id=api-reference:domains.dns:gethosts
     def get_hosts(sld, tld, options = {})
       options = {:SLD => sld, :TLD => tld}.merge(options)
-      get 'domains.dns.getHosts', options
+      post 'domains.dns.getHosts', options
     end
 
     # Gets email forwarding settings for the requested domain.

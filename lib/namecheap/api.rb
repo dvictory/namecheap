@@ -25,7 +25,7 @@ module Namecheap
 
     def request(method, command, options = {})
       command = 'namecheap.' + command
-      options = init_args.merge(options).merge({:command => command})
+      options = init_args.merge(options).merge({:Command => command})
       options.keys.each do |key|
         options[key.to_s.camelize] = options.delete(key)
       end
@@ -33,13 +33,20 @@ module Namecheap
       case method
       when 'get'
         #raise options.inspect
-        HTTParty.get(ENDPOINT, { :query => options})
+        # HTTParty.get(ENDPOINT, { :query => options})
+        HTTParty.get(ENDPOINT, :query=>options,:http_proxyaddr=>Namecheap.config.proxy_url,:http_proxyport=>Namecheap.config.proxy_port,:http_proxyuser=>Namecheap.config.proxy_user,:http_proxypass=>Namecheap.config.proxy_password)
       when 'post'
-        HTTParty.post(ENDPOINT, { :query => options})
-      when 'put'
-        HTTParty.put(ENDPOINT, { :query => options})
-      when 'delete'
+        # HTTParty.post(ENDPOINT, { :query => options, :body=>{}})
+        HTTParty.post(ENDPOINT, :query=>options,:body=>{},:http_proxyaddr=>Namecheap.config.proxy_url,:http_proxyport=>Namecheap.config.proxy_port,:http_proxyuser=>Namecheap.config.proxy_user,:http_proxypass=>Namecheap.config.proxy_password)
+  
+        when 'put'
+        # HTTParty.put(ENDPOINT, { :query => options})
+        HTTParty.put(ENDPOINT, :query=>options,:http_proxyaddr=>Namecheap.config.proxy_url,:http_proxyport=>Namecheap.config.proxy_port,:http_proxyuser=>Namecheap.config.proxy_user,:http_proxypass=>Namecheap.config.proxy_password)
+  
+        when 'delete'
         HTTParty.delete(ENDPOINT, { :query => options})
+        HTTParty.delete(ENDPOINT, :query=>options,:http_proxyaddr=>Namecheap.config.proxy_url,:http_proxyport=>Namecheap.config.proxy_port,:http_proxyuser=>Namecheap.config.proxy_user,:http_proxypass=>Namecheap.config.proxy_password)
+
       end
     end
 
