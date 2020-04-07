@@ -28,6 +28,13 @@ module Namecheap
     block_given? ? yield(Config) : Config
   end
   alias :config :configure
+
+  # Take all the public instance methods from the Config singleton and allow
+  # them to be accessed through the Namecheap module directly.
+  #
+  # @example Delegate the configuration methods.
+  #   Namecheap.key = 'newkey'
+  # delegate *(Config.public_instance_methods(false) << { :to => Config })
   
   attr_accessor :domains, :dns, :ns, :transfers, :ssl, :users, :whois_guard
   self.domains = Namecheap::Domains.new

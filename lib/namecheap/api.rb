@@ -29,16 +29,16 @@ module Namecheap
       options.keys.each do |key|
         options[key.to_s.camelize] = options.delete(key)
       end
-      
+     
       case method
       when 'get'
-        HTTParty.get(ENDPOINT, :query=>options,:http_proxyaddr=>Namecheap.proxy_url,:http_proxyport=>Namecheap.proxy_port,:http_proxyuser=>Namecheap.proxy_user,:http_proxypass=>Namecheap.proxy_password)
+        HTTParty.get(ENDPOINT, :query=>options,:http_proxyaddr=>Namecheap.config.proxy_url,:http_proxyport=>Namecheap.config.proxy_port,:http_proxyuser=>Namecheap.config.proxy_user,:http_proxypass=>Namecheap.config.proxy_password)
       when 'post'
-        HTTParty.post(ENDPOINT, :query=>options,:body=>{},:http_proxyaddr=>Namecheap.proxy_url,:http_proxyport=>Namecheap.proxy_port,:http_proxyuser=>Namecheap.proxy_user,:http_proxypass=>Namecheap.proxy_password)
+        HTTParty.post(ENDPOINT, :query=>options,:body=>{},:http_proxyaddr=>Namecheap.config.proxy_url,:http_proxyport=>Namecheap.config.proxy_port,:http_proxyuser=>Namecheap.config.proxy_user,:http_proxypass=>Namecheap.config.proxy_password)
       when 'put'
-        HTTParty.put(ENDPOINT, :query=>options,:http_proxyaddr=>Namecheap.proxy_url,:http_proxyport=>Namecheap.proxy_port,:http_proxyuser=>Namecheap.proxy_user,:http_proxypass=>Namecheap.proxy_password)
+        HTTParty.put(ENDPOINT, :query=>options,:http_proxyaddr=>Namecheap.config.proxy_url,:http_proxyport=>Namecheap.config.proxy_port,:http_proxyuser=>Namecheap.config.proxy_user,:http_proxypass=>Namecheap.config.proxy_password)
       when 'delete'
-        HTTParty.delete(ENDPOINT, :query=>options,:http_proxyaddr=>Namecheap.proxy_url,:http_proxyport=>Namecheap.proxy_port,:http_proxyuser=>Namecheap.proxy_user,:http_proxypass=>Namecheap.proxy_password)
+        HTTParty.delete(ENDPOINT, :query=>options,:http_proxyaddr=>Namecheap.config.proxy_url,:http_proxyport=>Namecheap.config.proxy_port,:http_proxyuser=>Namecheap.config.proxy_user,:http_proxypass=>Namecheap.config.proxy_password)
       end
     end
     
